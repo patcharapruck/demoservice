@@ -21,18 +21,21 @@ public class CalculatorController {
     public Calculator hellocalculator(@RequestBody Calculator calculator){
         Calculator reaponse = new Calculator();
 
-        if(reaponse.getOperator().equals("+")){
+        if(calculator.getOperator().equals("+")){
             reaponse.setAns(calculator.getFirstnum()+calculator.getSecondnum());
         }
-        else if(reaponse.getOperator().equals("-")){
+        else if(calculator.getOperator().equals("-")){
             reaponse.setAns(calculator.getFirstnum()-calculator.getSecondnum());
         }
-        else if(reaponse.getOperator().equals("*")){
-            reaponse.setAns(calculator.getFirstnum()-calculator.getSecondnum());
+        else if(calculator.getOperator().equals("*")){
+            reaponse.setAns(calculator.getFirstnum()*calculator.getSecondnum());
         }
-        else if(reaponse.getOperator().equals("/")){
-            reaponse.setAns(calculator.getFirstnum()-calculator.getSecondnum());
+        else if(calculator.getOperator().equals("/")){
+            reaponse.setAns(calculator.getFirstnum()/calculator.getSecondnum());
         }
+        reaponse.setFirstnum(calculator.getFirstnum());
+        reaponse.setSecondnum(calculator.getSecondnum());
+        reaponse.setOperator(calculator.getOperator());
 
         return reaponse;
     }
